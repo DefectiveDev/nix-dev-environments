@@ -7,7 +7,7 @@
         pkgs = import nixpkgs {inherit system;};
     in
     {
-        devShell.${system} = pkgs.mkShell {
+        devShell."x86_64-linux" = pkgs.mkShell {
             name = "nix-dev";
             packages = with pkgs; [
                 nil
