@@ -4,14 +4,14 @@
 
     outputs = {self, nixpkgs, ...}:
         let system = "x86_64-linux";
-    pkgs = import nixpkgs {inherit system;};
+        pkgs = import nixpkgs {inherit system;};
     in
     {
-        devShell.default = nixpkgs.mkShellNoCC {
+        devShell.${system} = nixpkgs.mkShellNoCC {
             name = "nix-dev";
             packages = with pkgs; [
                 nil
-                    nixd
+                nixd
             ];
         };
     };
