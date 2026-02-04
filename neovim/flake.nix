@@ -2,10 +2,10 @@
     description = "Lua dev shell";
 
     inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+        nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
     };
 
-    outputs = { self, nixpkgs }: 
+    outputs = { nixpkgs }:
     let
         system = "x86_64-linux";
         pkgs = import nixpkgs {inherit system;};
@@ -13,7 +13,7 @@
     {
 
         devShell.${system} = pkgs.mkShell {
-            name = "lua";
+            name = "nvim";
             packages = with pkgs; [ lua-language-server ];
         };
 
